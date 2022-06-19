@@ -34,19 +34,41 @@
     </nav>
 
     <main class="main">
-      <div class="book">
-        <form id="form" method="post" action="#" style="display: none">
+      <div class="book-form">
+        <form id="form" method="#" action="#">
           <input
+            data-input="undefined"
             type="text"
             name="book-name"
             id="book-name"
-            placeholder="Book Name"
+            placeholder="Book Title"
+            value="Nana"
             required
           />
-          <input type="text" name="author" id="author" placeholder="Author" />
-          <input type="text" name="pages" id="pages" placeholder="Pages" />
+          <input
+            data-input="undefined"
+            type="text"
+            name="author"
+            id="author"
+            placeholder="Author"
+            value="kiki"
+          />
+          <input
+            data-input="undefined"
+            type="text"
+            name="pages"
+            id="pages"
+            placeholder="Pages"
+            value="25"
+          />
           <div class="checkbox">
-            <input type="checkbox" name="read" id="read" checked="checked" />
+            <input
+              data-input="undefined"
+              type="checkbox"
+              name="read"
+              id="read"
+              checked="checked"
+            />
             Already read?
           </div>
           <input id="add" type="submit" value="Add" />
