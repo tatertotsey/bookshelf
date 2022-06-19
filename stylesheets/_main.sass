@@ -1,0 +1,39 @@
+$sidebar: #F2CC8F
+$bg-colour: #F4F1DE
+$opacity: 0.18
+$shadow-colour: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18)
+$breakpoint-big: false
+$font:'Comfortaa', cursive
+$text-size: 1.5rem
+$header-size: 1.3rem
+$icon-shadow: drop-shadow(2px 2px 2px white)
+
+@mixin make-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin make-left 
+    display: flex
+    justify-content: flex-start
+    align-items: center
+
+@mixin make-right 
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+* 
+    font-family: $font
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    width: 100vw
+    height: 100vh
+    display: grid
+    grid-template-columns: 10% 90%
+    grid-template-rows: 15% 85%
+    background-color: $bg-colour
+

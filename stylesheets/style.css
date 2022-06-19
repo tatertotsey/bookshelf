@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+* {
+  font-family: "Comfortaa", cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: 15% 85%;
+  background-color: #F4F1DE;
+}
+
+.header {
+  background-color: #F4F1DE;
+  grid-area: 1/2/2/3;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+  display: grid;
+  grid-template-columns: 40% auto;
+  font-size: 1.3rem;
+}
+.header .form {
+  grid-area: 1/1/2/2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+  padding-left: 3em;
+}
+.header .form input {
+  width: 25rem;
+  padding: 10px;
+  border-radius: 25px;
+  border-style: none;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+}
+.header .right-side {
+  grid-area: 1/2/2/3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 3rem;
+}
+
+.navbar {
+  background-color: #F2CC8F;
+  grid-area: 1/1/3/2;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+  display: grid;
+  grid-template-rows: 20% 80%;
+}
+.navbar .nav-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .nav-icon img {
+  width: 45px;
+}
+.navbar .plus-minus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-bottom: 50px;
+}
+.navbar .plus-minus img {
+  width: 32px;
+}
+.navbar .plus-minus img:hover {
+  filter: drop-shadow(2px 2px 2px white);
+}
+
+.main {
+  grid-area: 2/2/3/3;
+  display: grid;
+  grid-template-columns: repeat(6, 15rem);
+  grid-template-rows: repeat(6, 20rem);
+  gap: 2rem;
+  padding: 2rem;
+}
+.main .book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+.main .book form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.main .book form input {
+  padding: 0.5rem;
+  border-radius: 5px;
+}/*# sourceMappingURL=style.css.map */

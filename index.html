@@ -1,20 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="style.js" defer></script>
-</head>
-<body>
-    
-    <header class="header"><Header></Header></header>
-        <!-- <form action="#" class="form">
-            <input type="search" name="searchbar">
-        </form> -->
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <form action="#" class="form">
+        <input type="search" name="searchbar" placeholder="Search..." />
+        <img src="res/search-icon.svg" alt="Search" />
+      </form>
 
+      <div class="right-side">
+        <img src="res/notification-icon.svg" alt="Notification Icon" />
+        <img src="res/account-icon.svg" alt="Account Icon" />
+        <p>Hi, tatertotsey!</p>
+      </div>
     </header>
-</body>
+
+    <nav class="navbar">
+      <div class="nav-icon">
+        <img src="res/book-icon.svg" alt="Bookshelf" />
+      </div>
+
+      <div class="plus-minus">
+        <img id="plus" src="res/plus-icon.svg" alt="Plus Icon" />
+        <img id="remove" src="res/minus-icon.svg" alt="Minus Icon" />
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="book">
+        <form id="form" method="post" action="#" style="display: none">
+          <input
+            type="text"
+            name="book-name"
+            id="book-name"
+            placeholder="Book Name"
+            required
+          />
+          <input type="text" name="author" id="author" placeholder="Author" />
+          <input type="text" name="pages" id="pages" placeholder="Pages" />
+          <div class="checkbox">
+            <input type="checkbox" name="read" id="read" checked="checked" />
+            Already read?
+          </div>
+          <input id="add" type="submit" value="Add" />
+        </form>
+      </div>
+    </main>
+  </body>
 </html>

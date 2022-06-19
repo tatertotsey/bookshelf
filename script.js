@@ -1,26 +1,19 @@
-function Book() {
-  this.title = "The Hobbit";
-  this.author = "J.R.R Tolkien";
-  this.page = "259";
-  this.read = "not yet";
+//when '+' is clicked, display form in the content grid
 
-  // this.info = function() {
-  //    return this.title + ", written by " + this.author + ", has  " + this.page + " pages and " + this.read + " read.";
-  // }
-}
+const plusBtn = document.getElementById("plus");
+const form = document.getElementById("form");
+const addBtn = document.getElementById("add");
+const inputs = document.querySelectorAll("input");
 
-Book.prototype.info = function () {
-  return (
-    this.title +
-    ", written by " +
-    this.author +
-    ", has  " +
-    this.page +
-    " pages and " +
-    this.read +
-    " read."
-  );
+plusBtn.onclick = () => {
+  form.style.display = "";
 };
 
-const hobbit = new Book();
-console.log(hobbit.info());
+//when 'add' clicked, the form disappears
+addBtn.onclick = (e) => {
+  form.style.display = "none";
+  inputDelete();
+  e.preventDefault();
+};
+
+//remove the input contents

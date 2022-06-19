@@ -1,0 +1,26 @@
+.header
+    background-color: $bg-colour
+    grid-area: 1 / 2 / 2 / 3
+    box-shadow: $shadow-colour
+    display: grid
+    grid-template-columns: 40% auto
+    font-size: $header-size
+
+    .form
+        grid-area: 1 / 1 / 2 / 2
+        @include make-left
+        gap: 0.5em
+        padding-left: 3em
+
+        input
+            width: 25rem
+            padding: 10px
+            border-radius: 25px
+            border-style: none
+            box-shadow: $shadow-colour
+
+    .right-side
+        grid-area: 1 / 2 / 2 / 3
+        @include make-right
+        gap: 1rem
+        padding-right: 3rem

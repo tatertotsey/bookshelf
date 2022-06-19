@@ -1,0 +1,29 @@
+
+.navbar
+    background-color: $sidebar
+    grid-area: 1 / 1 / 3 / 2
+    box-shadow: $shadow-colour
+    display: grid
+    grid-template-rows: 20% 80%
+    
+    .nav-icon 
+        @include make-center
+
+        img
+            width: 45px
+
+    .plus-minus 
+        @include make-center
+        flex-direction: column
+        gap: 2.5rem
+        padding-bottom: 50px
+
+        img 
+            width: 32px
+
+            &:hover 
+                filter: $icon-shadow
+        
+        
+
+        

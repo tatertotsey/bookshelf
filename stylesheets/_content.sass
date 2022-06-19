@@ -1,0 +1,23 @@
+.main 
+    grid-area: 2 / 2 / 3 / 3
+    display: grid
+    grid-template-columns: repeat(6, 15rem)
+    grid-template-rows: repeat(6, 20rem)
+    gap: 2rem
+    padding: 2rem
+
+    .book
+        @include make-center
+        background-color: red
+        
+        form 
+            @include make-center
+            flex-direction: column
+            gap: 1rem
+
+            input 
+                padding: 0.5rem
+                border-radius: 5px
+
+                    
+                
