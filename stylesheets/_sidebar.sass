@@ -5,25 +5,30 @@
     box-shadow: $shadow-colour
     display: grid
     grid-template-rows: 20% 80%
-    
-    .nav-icon 
+    position: relative
+
+    .nav-icon
         @include make-center
 
         img
             width: 45px
 
-    .plus-minus 
+    .plus-minus-remove
         @include make-center
         flex-direction: column
         gap: 2.5rem
         padding-bottom: 50px
 
-        img 
+        img
             width: 32px
 
-            &:hover 
+            &:hover
                 filter: $icon-shadow
-        
-        
 
-        
+    .git
+        position: absolute
+        bottom: 5px
+        right: 40%
+
+        img
+            width: 25px

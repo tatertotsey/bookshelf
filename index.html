@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="icon" type="image/svg" href="res/book-icon.svg" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <header class="header">
       <form action="#" class="form">
-        <input type="search" name="searchbar" placeholder="Search..." />
+        <input
+          id="searchInput"
+          type="search"
+          name="searchbar"
+          placeholder="Search..."
+        />
         <img src="res/search-icon.svg" alt="Search" />
       </form>
 
@@ -27,22 +33,43 @@
         <img src="res/book-icon.svg" alt="Bookshelf" />
       </div>
 
-      <div class="plus-minus">
-        <img id="plus" src="res/plus-icon.svg" alt="Plus Icon" />
-        <img id="remove" src="res/minus-icon.svg" alt="Minus Icon" />
+      <div class="plus-minus-remove">
+        <img
+          title="Add Book"
+          id="plus"
+          src="res/plus-icon.svg"
+          alt="Plus Icon"
+        />
+        <img
+          title="Remove Book"
+          id="remove"
+          src="res/minus-icon.svg"
+          alt="Minus Icon"
+        />
+        <img
+          title="Clear Library"
+          id="removeAll"
+          src="https://img.icons8.com/fluency-systems-regular/48/undefined/delete-trash--v3.png"
+          alt="remove all"
+        />
+      </div>
+
+      <div class="git">
+        <a href="https://github.com/tatertotsey" target="_blank"
+          ><img src="res/git.png" alt="git-logo" class="git"
+        /></a>
       </div>
     </nav>
 
     <main class="main">
       <div class="book-form">
-        <form id="form" method="#" action="#">
+        <form id="form" method="" action="">
           <input
             data-input="undefined"
             type="text"
             name="book-name"
             id="book-name"
             placeholder="Book Title"
-            value="Nana"
             required
           />
           <input
@@ -51,15 +78,14 @@
             name="author"
             id="author"
             placeholder="Author"
-            value="kiki"
           />
           <input
             data-input="undefined"
             type="text"
+            pattern="[0-9]+"
             name="pages"
             id="pages"
             placeholder="Pages"
-            value="25"
           />
           <div class="checkbox">
             <input
@@ -67,7 +93,7 @@
               type="checkbox"
               name="read"
               id="read"
-              checked="checked"
+              checked
             />
             Already read?
           </div>

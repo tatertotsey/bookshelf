@@ -3,7 +3,7 @@ $bg-colour: #F4F1DE
 $opacity: 0.18
 $shadow-colour: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18)
 $breakpoint-big: false
-$font:'Comfortaa', cursive
+$font: 'Comfortaa', cursive
 $text-size: 1.5rem
 $header-size: 1.3rem
 $icon-shadow: drop-shadow(2px 2px 2px white)
@@ -13,17 +13,39 @@ $icon-shadow: drop-shadow(2px 2px 2px white)
     justify-content: center
     align-items: center
 
-@mixin make-left 
+@mixin make-left
     display: flex
     justify-content: flex-start
     align-items: center
 
-@mixin make-right 
+@mixin make-right
     display: flex
     justify-content: flex-end
     align-items: center
 
-* 
+@mixin shake($vendor: '')
+    0%, 100%
+         #{$vendor}transform: translateX(0) rotate(0deg) translateY(0)
+    
+    10%,30%,50%, 70%, 90%
+         #{$vendor}transform: translateY(1px)
+
+    15%,35%, 55%, 75%, 95%
+         #{$vendor}transform: translateX(-1px) rotate(-0.25deg)
+
+    
+    20%, 40%, 60%, 80%
+         #{$vendor}transform: translateY(-1px)
+    25%, 45%, 65%, 85%
+        #{$vendor}transform: translateX(1px) rotate(0.25deg)
+   
+
+@keyframes shake
+    +shake()
+@-webkit-keyframes shake
+    +shake(-webkit-)
+
+*
     font-family: $font
     margin: 0
     padding: 0
@@ -36,4 +58,3 @@ body
     grid-template-columns: 10% 90%
     grid-template-rows: 15% 85%
     background-color: $bg-colour
-

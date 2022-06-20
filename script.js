@@ -4,27 +4,41 @@ const addBtn = document.getElementById("add");
 const inputs = document.querySelectorAll("[data-input]");
 const main = document.getElementsByClassName("main")[0];
 const bookForm = document.getElementsByClassName("book-form")[0];
+const removeAll = document.getElementById("removeAll");
+const searchInput = document.getElementById("searchInput");
+const remove = document.getElementById("remove");
 
 let myLibrary = [];
 
 //when '+' is clicked, display form in the content grid
 plusBtn.onclick = () => {
   bookForm.style.display = "flex";
+  taketoTop();
 };
 
-addBtn.addEventListener("click", (e) => {
+//when the form submitted with 'add' button
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  addClicked();
+  addBtnClicked();
 });
 
+//remove library and the storage when clicked
+removeAll.onclick = removeStorageLibrary;
+
+//search through the site while searchInput is being filled in
+searchInput.onkeyup = searchThrough;
+
+//shake cards when '-' clicked
+remove.onclick = shakeMe;
+
 //when 'add' clicked, the form disappears
-function addClicked() {
+function addBtnClicked() {
   bookForm.style.display = "none";
   let book = new Book(
     inputs[0].value,
     inputs[1].value,
     inputs[2].value,
-    inputs[3].value
+    inputs[3].checked
   );
   inputToLibrary(book);
   resetInput();
@@ -33,9 +47,7 @@ function addClicked() {
 
 //remove the input contents
 function resetInput() {
-  inputs.forEach((input) => {
-    input.value = "";
-  });
+  form.reset();
 }
 
 //create cards to dipslay the input contents
@@ -78,26 +90,76 @@ function inputToLibrary(book) {
 
 function displayBooks() {
   let myStorageLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-  myStorageLibrary.forEach((storedBook) => {
-    createCard(storedBook);
-  });
+  if (myStorageLibrary != null) {
+    myStorageLibrary.forEach((storedBook) => {
+      createCard(storedBook);
+    });
+  }
 }
 
 function updateStorageLibrary() {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-  console.log(localStorage.getItem("myLibrary"));
 }
 
+loadStorageLibrary();
 displayBooks();
 
-/* TODO: add with 'minus' removing books, maybe with vibration animation
-         make searchbar works in the site
-         make the pages accept only digits
-         add some kind of 'remove all' button and functionality 
-            if it is enabled make sure remove everything also from the localStorage
+function loadStorageLibrary() {
+  myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+  if (myLibrary == null) {
+    myLibrary = [];
+  }
+}
+
+function removeStorageLibrary() {
+  localStorage.clear();
+  document.getElementsByClassName("book")[0].remove();
+}
+
+function taketoTop() {
+  main.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function searchThrough(e) {
+  const bookList = document.getElementsByClassName("book");
+  const { value } = e.target;
+  const searchQuery = value.toLowerCase();
+  console.log("searching");
+  for (const item of bookList) {
+    let booktext = item.innerText.toLowerCase();
+    if (!booktext.includes(searchQuery)) {
+      item.style.display = "none";
+    } else {
+      item.style.display = "";
+    }
+  }
+}
+
+function shakeMe() {
+  const bookList = document.getElementsByClassName("book");
+  for (const book of bookList) {
+    book.style.animation = "shake 1.5s";
+    book.style.animationIterationCount = "infinite";
+  }
+}
+
+/* TODO: add with 'minus' removing books
+
          maybe login option, Firebase? -UNNECESSARY
-         add github logo to end of the _sidebar
-         add favicon to the site url
+
          style the cards a bit better
          change color palette maybe?
+
+          - DONE! - make the pages accept only digits
+          - DONE! - make sure that the form does not send invalid input
+          - DONE! - if cards are too many, when 'plus' clicked take the user to the top!
+          - DONE! - make tooltips for buttons on the sidebar
+          - DONE! - add some kind of 'remove all' button and functionality 
+                    if it is enabled make sure remove everything also from the localStorage
+
+          - DONE! - make searchbar works in the site
+          - DONE! - vibration animation 
+          - DONE! - add github logo to end of the _sidebar
+          - DONE! - add favicon to the site url
+
 */
