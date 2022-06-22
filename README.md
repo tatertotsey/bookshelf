@@ -44,4 +44,4 @@ Here you can find the [🌟 Live Demo](https://tatertotsey.github.io/bookshelf/)
 - With the help of the _`ID`_ of the book objects and the displayed books, arrangement of the localStorage becomes more structured
 
 ## ToDo
-[ ] edit read status and update storage
+- [ ] edit read status and update storage
