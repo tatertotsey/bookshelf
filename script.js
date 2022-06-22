@@ -86,6 +86,8 @@ function createCard(book) {
   author.innerText = book.author;
   pages.innerText = book.pages;
   book.read ? (read.innerText = "read") : (read.innerText = "unread");
+
+  newCard.onclick = changereadStatus;
 }
 
 //create constructor for bookshelf
@@ -105,6 +107,7 @@ function inputToLibrary(book) {
   updateStorageLibrary();
 }
 
+//display books in the library
 function displayBooks() {
   let myStorageLibrary = JSON.parse(localStorage.getItem("myLibrary"));
   if (myStorageLibrary != null) {
@@ -128,6 +131,7 @@ function loadStorageLibrary() {
   }
 }
 
+//remove all items in localStorage and from display
 function removeStorageLibrary() {
   localStorage.clear();
   myLibrary = [];
@@ -141,6 +145,7 @@ function taketoTop() {
   main.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+//for searchbar functionality
 function searchThrough(e) {
   const bookList = document.getElementsByClassName("book");
   const { value } = e.target;
@@ -156,6 +161,7 @@ function searchThrough(e) {
   }
 }
 
+//vibrates books when - clicked
 function shakeMe() {
   const bookList = document.getElementsByClassName("book");
   if (removeState) {
@@ -178,6 +184,7 @@ function shakeMe() {
   }
 }
 
+//remove particular book from lib and localStorage
 function removeUpdate(e) {
   myLibrary = myLibrary.filter((book) => book.id != e.target.parentNode.id);
 
@@ -185,4 +192,21 @@ function removeUpdate(e) {
   updateStorageLibrary();
 }
 
-
+function changereadStatus(e) {
+  let readStat = e.target.children[3];
+  if (readStat.innerText == "read") {
+    readStat.innerHTML = "<p class='read'>unread</p>";
+  } else if (readStat.innerText == "unread") {
+    readStat.innerHTML = "<p class='read'>read</p>";
+  }
+  updateStorageFromCards(e);
+}
+function updateStorageFromCards(e) {
+  for (book of myLibrary) {
+    if (book.id == e.target.id) {
+      book.read = !book.read;
+      break;
+    }
+  }
+  updateStorageLibrary();
+}
