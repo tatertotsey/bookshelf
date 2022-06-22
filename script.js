@@ -85,7 +85,7 @@ function createCard(book) {
   title.innerText = book.title;
   author.innerText = book.author;
   pages.innerText = book.pages;
-  book.read ? (read.innerText = "read") : (read.innerText = "not yet read");
+  book.read ? (read.innerText = "read") : (read.innerText = "unread");
 }
 
 //create constructor for bookshelf
@@ -185,23 +185,4 @@ function removeUpdate(e) {
   updateStorageLibrary();
 }
 
-/* TODO: 
-         style the cards a bit better
-         change color palette maybe?
 
-          - DONE! - make the pages accept only digits
-          - DONE! - make sure that the form does not send invalid input
-          - DONE! - if cards are too many, when 'plus' clicked take the user to the top!
-          - DONE! - make tooltips for buttons on the sidebar
-          - DONE! - add some kind of 'remove all' button and functionality 
-                    if it is enabled make sure remove everything also from the localStorage
-
-          - DONE! - make searchbar works in the site
-          - DONE! - vibration animation 
-          - DONE! - add github logo to end of the _sidebar
-          - DONE! - add favicon to the site url
-          - DONE! -added id to book objects and the books in the library to identify them and easily remove them
-          - DONE! -add with 'minus' removing books
-          - DONE! -read / not yet read values are uodated!
-          - DONE! -if you click on Book icon, it scrolls you to the top of the page
-*/
