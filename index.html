@@ -30,28 +30,40 @@
 
     <nav class="navbar">
       <div class="nav-icon">
-        <img src="res/book-icon.svg" alt="Bookshelf" />
+        <img src="res/book-icon.svg" alt="Bookshelf" onclick="taketoTop()" />
       </div>
 
       <div class="plus-minus-remove">
-        <img
-          title="Add Book"
-          id="plus"
-          src="res/plus-icon.svg"
-          alt="Plus Icon"
-        />
-        <img
-          title="Remove Book"
-          id="remove"
-          src="res/minus-icon.svg"
-          alt="Minus Icon"
-        />
-        <img
-          title="Clear Library"
-          id="removeAll"
-          src="https://img.icons8.com/fluency-systems-regular/48/undefined/delete-trash--v3.png"
-          alt="remove all"
-        />
+        <button id="plus">
+          <img
+            title="Add Book"
+            id="plusid"
+            src="res/plus-icon.svg"
+            alt="Plus Icon"
+          />
+        </button>
+
+        <button id="remove">
+          <img
+            title="Remove Book"
+            id="removeid"
+            src="res/minus-icon.svg"
+            alt="Minus Icon"
+          />
+        </button>
+
+        <button id="removeAll">
+          <img
+            title="Clear Library"
+            id="removeAllid"
+            src="https://img.icons8.com/fluency-systems-regular/48/undefined/delete-trash--v3.png"
+            alt="remove all"
+            style="
+              filter: invert(94%) sepia(28%) saturate(63%) hue-rotate(158deg)
+                brightness(99%) contrast(93%);
+            "
+          />
+        </button>
       </div>
 
       <div class="git">

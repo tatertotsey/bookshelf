@@ -1,37 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 @keyframes shake {
-  0%, 100% {
-    transform: translateX(0) rotate(0deg) translateY(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateY(1px);
-  }
-  15%, 35%, 55%, 75%, 95% {
-    transform: translateX(-1px) rotate(-0.25deg);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateY(-1px);
-  }
-  25%, 45%, 65%, 85% {
-    transform: translateX(1px) rotate(0.25deg);
-  }
+  transform: translateX(0) rotate(0deg) translateY(0);
+  transform: translateY(1px);
+  transform: translateX(-1px) rotate(-0.25deg);
+  transform: translateY(-1px);
+  transform: translateX(1px) rotate(0.25deg);
 }
 @-webkit-keyframes shake {
-  0%, 100% {
-    -webkit-transform: translateX(0) rotate(0deg) translateY(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateY(1px);
-  }
-  15%, 35%, 55%, 75%, 95% {
-    -webkit-transform: translateX(-1px) rotate(-0.25deg);
-  }
-  20%, 40%, 60%, 80% {
-    -webkit-transform: translateY(-1px);
-  }
-  25%, 45%, 65%, 85% {
-    -webkit-transform: translateX(1px) rotate(0.25deg);
-  }
+  -webkit-transform: translateX(0) rotate(0deg) translateY(0);
+  -webkit-transform: translateY(1px);
+  -webkit-transform: translateX(-1px) rotate(-0.25deg);
+  -webkit-transform: translateY(-1px);
+  -webkit-transform: translateX(1px) rotate(0.25deg);
 }
 * {
   font-family: "Comfortaa", cursive;
@@ -46,11 +26,11 @@ body {
   display: grid;
   grid-template-columns: 10% 90%;
   grid-template-rows: 15% 85%;
-  background-color: #F4F1DE;
+  background-color: #8d99ae;
 }
 
 .header {
-  background-color: #F4F1DE;
+  background-color: #383B56;
   grid-area: 1/2/2/3;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18);
   display: grid;
@@ -80,9 +60,12 @@ body {
   gap: 1rem;
   padding-right: 3rem;
 }
+.header .right-side p {
+  color: #edf2f4;
+}
 
 .navbar {
-  background-color: #F2CC8F;
+  background-color: #202231;
   grid-area: 1/1/3/2;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18);
   display: grid;
@@ -111,6 +94,9 @@ body {
 .navbar .plus-minus-remove img:hover {
   filter: drop-shadow(2px 2px 2px white);
 }
+.navbar .plus-minus-remove button {
+  all: unset;
+}
 .navbar .git {
   position: absolute;
   bottom: 5px;
@@ -138,6 +124,13 @@ body {
   height: 300px;
   border-radius: 10px;
   gap: 1rem;
+  background-color: #edf2f4;
+}
+.main .book .removebook {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
 }
 .main .book-form {
   background-color: green;
@@ -157,4 +150,4 @@ body {
 .main .book-form form input {
   padding: 0.5rem;
   border-radius: 5px;
-}/*# sourceMappingURL=style.css.map */
+}

@@ -8,12 +8,16 @@ const removeAll = document.getElementById("removeAll");
 const searchInput = document.getElementById("searchInput");
 const remove = document.getElementById("remove");
 
+let id = Math.max(0, JSON.parse(localStorage.getItem("lastID")));
 let myLibrary = [];
+let removeState = false;
 
 //when '+' is clicked, display form in the content grid
 plusBtn.onclick = () => {
-  bookForm.style.display = "flex";
-  taketoTop();
+  if (!removeState) {
+    bookForm.style.display = "flex";
+    taketoTop();
+  }
 };
 
 //when the form submitted with 'add' button
@@ -23,13 +27,23 @@ form.addEventListener("submit", (e) => {
 });
 
 //remove library and the storage when clicked
-removeAll.onclick = removeStorageLibrary;
+removeAll.onclick = () => {
+  removeStorageLibrary();
+};
 
 //search through the site while searchInput is being filled in
 searchInput.onkeyup = searchThrough;
 
 //shake cards when '-' clicked
-remove.onclick = shakeMe;
+remove.addEventListener("click", () => {
+  if (!removeState) {
+    removeState = true;
+    shakeMe();
+  } else {
+    removeState = false;
+    shakeMe();
+  }
+});
 
 //when 'add' clicked, the form disappears
 function addBtnClicked() {
@@ -53,7 +67,7 @@ function resetInput() {
 //create cards to dipslay the input contents
 function createCard(book) {
   const newCard = document.createElement("div");
-
+  newCard.id = book.id;
   const title = document.createElement("p");
   const author = document.createElement("p");
   const pages = document.createElement("p");
@@ -71,7 +85,7 @@ function createCard(book) {
   title.innerText = book.title;
   author.innerText = book.author;
   pages.innerText = book.pages;
-  read.innerText = book.read;
+  book.read ? (read.innerText = "read") : (read.innerText = "not yet read");
 }
 
 //create constructor for bookshelf
@@ -80,6 +94,9 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.id = id;
+  id++;
+  localStorage.setItem("lastID", JSON.stringify(id));
 }
 
 //add the inputs that are taken from user to 'myLibrary'
@@ -113,7 +130,10 @@ function loadStorageLibrary() {
 
 function removeStorageLibrary() {
   localStorage.clear();
-  document.getElementsByClassName("book")[0].remove();
+  const storedbooks = document.getElementsByClassName("book");
+  for (let i = storedbooks.length - 1; i >= 0; i--) {
+    storedbooks[i].remove();
+  }
 }
 
 function taketoTop() {
@@ -137,16 +157,34 @@ function searchThrough(e) {
 
 function shakeMe() {
   const bookList = document.getElementsByClassName("book");
-  for (const book of bookList) {
-    book.style.animation = "shake 1.5s";
-    book.style.animationIterationCount = "infinite";
+  if (removeState) {
+    for (const book of bookList) {
+      const addimg = document.createElement("img");
+      addimg.src = "res/red.png";
+      addimg.className = "removebook";
+      book.append(addimg);
+      book.style.animation = "shake 1.5s";
+      book.style.animationIterationCount = "infinite";
+      addimg.onclick = removeUpdate;
+    }
+  }
+  if (!removeState) {
+    for (const book of bookList) {
+      const addedimg = document.getElementsByClassName("removebook")[0];
+      book.style.animation = "none";
+      addedimg.remove();
+    }
   }
 }
 
-/* TODO: add with 'minus' removing books
+function removeUpdate(e) {
+  myLibrary = myLibrary.filter((book) => book.id != e.target.parentNode.id);
 
-         maybe login option, Firebase? -UNNECESSARY
+  e.target.parentNode.remove();
+  updateStorageLibrary();
+}
 
+/* TODO: 
          style the cards a bit better
          change color palette maybe?
 
@@ -161,5 +199,8 @@ function shakeMe() {
           - DONE! - vibration animation 
           - DONE! - add github logo to end of the _sidebar
           - DONE! - add favicon to the site url
-
+          - DONE! -added id to book objects and the books in the library to identify them and easily remove them
+          - DONE! -add with 'minus' removing books
+          - DONE! -read / not yet read values are uodated!
+          - DONE! -if you click on Book icon, it scrolls you to the top of the page
 */

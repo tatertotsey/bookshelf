@@ -1,5 +1,7 @@
-$sidebar: #F2CC8F
-$bg-colour: #F4F1DE
+$sidebar: #202231
+$bg-colour: #8d99ae
+$header-colour: #383B56
+$card-colour: #edf2f4
 $opacity: 0.18
 $shadow-colour: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18)
 $breakpoint-big: false
@@ -25,20 +27,18 @@ $icon-shadow: drop-shadow(2px 2px 2px white)
 
 @mixin shake($vendor: '')
     0%, 100%
-         #{$vendor}transform: translateX(0) rotate(0deg) translateY(0)
-    
+    #{$vendor}transform: translateX(0) rotate(0deg) translateY(0)
+
     10%,30%,50%, 70%, 90%
-         #{$vendor}transform: translateY(1px)
+    #{$vendor}transform: translateY(1px)
 
     15%,35%, 55%, 75%, 95%
-         #{$vendor}transform: translateX(-1px) rotate(-0.25deg)
+    #{$vendor}transform: translateX(-1px) rotate(-0.25deg)
 
-    
     20%, 40%, 60%, 80%
-         #{$vendor}transform: translateY(-1px)
+    #{$vendor}transform: translateY(-1px)
     25%, 45%, 65%, 85%
-        #{$vendor}transform: translateX(1px) rotate(0.25deg)
-   
+    #{$vendor}transform: translateX(1px) rotate(0.25deg)
 
 @keyframes shake
     +shake()
