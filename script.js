@@ -130,6 +130,7 @@ function loadStorageLibrary() {
 
 function removeStorageLibrary() {
   localStorage.clear();
+  myLibrary = [];
   const storedbooks = document.getElementsByClassName("book");
   for (let i = storedbooks.length - 1; i >= 0; i--) {
     storedbooks[i].remove();

@@ -1,17 +1,67 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 @keyframes shake {
-  transform: translateX(0) rotate(0deg) translateY(0);
-  transform: translateY(1px);
-  transform: translateX(-1px) rotate(-0.25deg);
-  transform: translateY(-1px);
-  transform: translateX(1px) rotate(0.25deg);
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg) translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateY(1px);
+  }
+  15%,
+  35%,
+  55%,
+  75%,
+  95% {
+    transform: translateX(-1px) rotate(-0.25deg);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateY(-1px);
+  }
+  25%,
+  45%,
+  65%,
+  85% {
+    transform: translateX(1px) rotate(0.25deg);
+  }
 }
 @-webkit-keyframes shake {
-  -webkit-transform: translateX(0) rotate(0deg) translateY(0);
-  -webkit-transform: translateY(1px);
-  -webkit-transform: translateX(-1px) rotate(-0.25deg);
-  -webkit-transform: translateY(-1px);
-  -webkit-transform: translateX(1px) rotate(0.25deg);
+  0%,
+  100% {
+    -webkit-transform: translateX(0) rotate(0deg) translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateY(1px);
+  }
+  15%,
+  35%,
+  55%,
+  75%,
+  95% {
+    -webkit-transform: translateX(-1px) rotate(-0.25deg);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateY(-1px);
+  }
+  25%,
+  45%,
+  65%,
+  85% {
+    -webkit-transform: translateX(1px) rotate(0.25deg);
+  }
 }
 * {
   font-family: "Comfortaa", cursive;
@@ -30,7 +80,7 @@ body {
 }
 
 .header {
-  background-color: #383B56;
+  background-color: #383b56;
   grid-area: 1/2/2/3;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.18), 0 2px 4px 0 rgba(0, 0, 0, 0.18);
   display: grid;
@@ -124,7 +174,12 @@ body {
   height: 300px;
   border-radius: 10px;
   gap: 1rem;
-  background-color: #edf2f4;
+  background: rgba(237, 242, 244, 0.43);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(237, 242, 244, 0.3);
 }
 .main .book .removebook {
   position: absolute;
@@ -138,6 +193,12 @@ body {
   height: 300px;
   display: none;
   border-radius: 10px;
+  background: rgba(237, 242, 244, 0.43);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(237, 242, 244, 0.3);
 }
 .main .book-form form {
   display: flex;
